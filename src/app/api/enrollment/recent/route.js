@@ -31,6 +31,10 @@ export const GET = async () => {
       course: true,
       student: true,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: 5,
   });
 
   return NextResponse.json({

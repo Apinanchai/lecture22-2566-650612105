@@ -32,6 +32,10 @@ export const RecentEnrollmentsSection = () => {
     callRecentEnrollmentApi();
   }, []);
 
+  function computeDate(dateISOString) {
+    const date = new Date(dateISOString);
+    return date.toLocaleTimeString() + " " + date.toLocaleDateString();
+  }
   return (
     <Paper withBorder p="md">
       <Title order={4}>Recent Enrollment(s)</Title>
@@ -47,7 +51,9 @@ export const RecentEnrollmentsSection = () => {
             </Text>
             <Text color="dimmed">👉</Text>
             <Text fw="bold" color="dimmed"></Text>
-            <Text color="dimmed" ml="auto"></Text>
+            <Text color="dimmed" ml="auto">
+              {computeDate(enroll.createdAt)}
+            </Text>
           </Group>
         ))}
     </Paper>
